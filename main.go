@@ -4,7 +4,7 @@ import (
 	"github.com/miketheprogrammer/go-thrust/thrust"
 	"github.com/miketheprogrammer/go-thrust/lib/bindings/window"
 	"github.com/miketheprogrammer/go-thrust/lib/commands"
-	//"fmt"
+	"fmt"
 	"encoding/json"
 )
 
@@ -31,20 +31,21 @@ func main() {
 
 
 	thrustWindow.HandleRemote(func(er commands.EventResult, this *window.Window) {
-		    var res map[string]interface{}
+		    res := Jrep{}
     		json.Unmarshal([]byte(er.Message.Payload), &res)
-    		arg := res["arg"].(string)
-    		strs := res["data"].([]interface{})
-    		var str []string
-    		for _,e := range strs{
-    			str = append(str,e.(string))
-    			
-    		}
-    		rep := Jrep{arg,str}
-    		switch rep.arg {
+
+
+    		snd := Jrep{}
+    		snd.Arg = res.Arg
+    		switch res.Arg {
     		case "todo" :
-    			tmp := db_get("todo")
-    			this.SendRemoteMessage(tmp)
+    			snd.Data = append(snd.Data, db_get("todo"))
+    			v, _ :=json.Marshal(snd)
+    			this.SendRemoteMessage(string(v[:]))
+    		case "todo_end" :
+    			fmt.Println(res)
+    			todos, _  := json.Marshal(res.Data)
+    			db_set("todo", string(todos[:]))
     		}
 	})
 	run()    

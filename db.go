@@ -22,8 +22,15 @@ func db_get(key string) string{
   return re
 }
 
+func db_set(key string, data string){
+  db.Update(func(tx *buntdb.Tx) error {
+    tx.Set(key, data, nil)
+    return nil
+})
+}
+
 type Jrep struct{
-  arg string `json:"arg"`
-  data []string `json:"data"`
+  Arg string `json:"arg"`
+  Data []string `json:"data"`
 }
 
