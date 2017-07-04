@@ -1,0 +1,154 @@
+<html>
+  <head>
+  <link href="/res/main.css" rel="stylesheet" type="text/css" />
+<script src="/res/script.js" type="text/javascript"></script>
+
+  <script>
+document.addEventListener('astilectron-ready', function() {
+
+  astilectron.listen(function(message) {
+  var x = JSON.parse(message);
+  switch(x.arg){
+    case "todo":
+      todo_rep(x.data);
+    break;
+    case "alarm":
+      alarm_rep(x.data);
+    break;
+  }
+});
+})
+    </script>
+  </head>
+  <body>
+<nav onclick="swift('index');" id="nav">
+Back
+</nav>
+    <section id="index">
+      <h1 class="title_blue" style="text-align:center">Phil's Turbo Soft</h1>
+      <ul>
+        <li> <button onclick="swift('todo');todo()">Todo</button></li>
+        <li> <button onclick="swift('alarm');alarm()">Alarm</button></li>
+      </ul>
+      
+    </section>
+    <section id="todo">
+      <ul>
+        <li id="todo_inp"> <input type="text" placeholder="todo" name="todo_inp" onkeydown="todo_add(event,this)"> </li>
+      </ul>
+      <script>
+        function todo()
+        {
+          var x = new Jrep("todo");
+          x.send();
+        }
+
+        function todo_rep(data)
+        {
+          data = JSON.parse(data)
+           var x = document.querySelectorAll(".del_todo");
+           for (var i = 0; i < x.length; i++) {
+             x[i].parentElement.removeChild( x[i]);
+           }
+
+          if(data[0] != "")
+          {
+             var input = document.querySelector("#todo_inp");
+            for (var i = 0; i < data.length; i++) {
+              input.insertAdjacentHTML('beforebegin','<li class="del_todo"><input type="checkbox" onclick="todo_done(this)" ><span>'+data[i]+'</span></li>');
+            }
+          }
+        }
+        function todo_done(el)
+        {
+          var v = el.parentElement;
+          v.classList.toggle("crossed");
+          todo_end()
+        }
+        function todo_add(ev,el)
+        {
+          if(ev.keyCode !=13) return;
+          var txt = el.value;
+          var ez = el.parentNode;
+          var ul = ez.parentNode;
+          ul.insertAdjacentHTML('beforeend','<li class="del_todo"><input type="checkbox" onclick="todo_done(this)"><span>'+txt+'</span></li>');
+          ul.removeChild(ez);
+          ul.appendChild(ez)
+          el.value = "";
+          todo_end();
+        }
+        function todo_end()
+        {
+          var e = document.querySelectorAll("#todo ul li span");
+          var z = [];
+          for (var i = 0; i < e.length; i++) {
+            var tmp = e[i].parentNode;
+            if(!tmp.classList.contains("crossed"))
+            {
+              z[i] = e[i].innerHTML;
+            }
+            
+          }
+          var r = new Jrep("todo_end", z);
+          r.send();
+        }
+      </script>
+    </section>
+    <section id="alarm">
+      <script>
+       function alarm()
+        {
+          var x = new Jrep("alarm");
+          x.send();
+        }
+
+        function alarm_rep(data)
+        {
+          data = JSON.parse(data)
+          
+        }
+        function alarm_done(el)
+        {
+          var v = el.parentElement;
+          v.classList.toggle("crossed");
+          todo_end()
+        }
+        function alarm_add(ev,el)
+        {
+          if(ev.keyCode !=13) return;
+          var txt = el.value;
+          var ez = el.parentNode;
+          var ul = ez.parentNode;
+          ul.insertAdjacentHTML('beforeend','<li class="del_todo"><input type="checkbox" onclick="todo_done(this)"><span>'+txt+'</span></li>');
+          ul.removeChild(ez);
+          ul.appendChild(ez)
+          el.value = "";
+          todo_end();
+        }
+        function alarmend()
+        {
+          var e = document.querySelectorAll("#todo ul li span");
+          var z = [];
+          for (var i = 0; i < e.length; i++) {
+            var tmp = e[i].parentNode;
+            if(!tmp.classList.contains("crossed"))
+            {
+              z[i] = e[i].innerHTML;
+            }
+            
+          }
+          var r = new Jrep("todo_end", z);
+          r.send();
+        }
+      </script>
+    </section>
+
+
+<footer>
+
+
+<audio src="/res/horn.mp3" class="invisible" loop id="alarm">
+
+</footer>
+  </body>
+  </html>

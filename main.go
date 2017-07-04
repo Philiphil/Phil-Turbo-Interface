@@ -1,52 +1,58 @@
 package main
 
 import (
-	"github.com/miketheprogrammer/go-thrust/thrust"
-	"github.com/miketheprogrammer/go-thrust/lib/bindings/window"
-	"github.com/miketheprogrammer/go-thrust/lib/commands"
-	"fmt"
-	"encoding/json"
+"github.com/asticode/go-astilectron"
+"fmt"
+"encoding/json"
 )
 
-var (
-	kultcenter = "kultcenter"
-	port = "8989"
-)
+var folder = "PhilTurboSoft"
+var	port = "8789"
+var ws *astilectron.Window
+var index = "index"
 
+
+func send_windows(msg string){
+	fmt.Println(msg)
+	ws.Send(string(msg))
+}
 
 
 func main() {
-	thrust.InitLogger()
-	thrust.Start()
+	go run()
+	a, _ := astilectron.New(astilectron.Options{AppName:"PTS"})
+	defer a.Close()
+	a.HandleSignals()
+	a.Start()
 
 
-	thrustWindow := thrust.NewWindow(thrust.WindowOptions{
-		RootUrl:  "http://127.0.0.1:"+port+"/"+kultcenter+"/index",
-		HasFrame: true,
+	ws, _ = a.NewWindow("http://127.0.0.1:"+port+"/"+folder+"/"+index, &astilectron.WindowOptions{
+			Center: astilectron.PtrBool(true),
+			Height: astilectron.PtrInt(600),
+			Width:  astilectron.PtrInt(800), 
+			})
+
+	  ws.On(astilectron.EventNameWindowEventMessage, func(e astilectron.Event) (deleteListener bool) {
+	    var m string
+	    e.Message.Unmarshal(&m)
+	    res := Jrep{}
+	    json.Unmarshal([]byte(m), &res)
+
+	    snd := Jrep{}
+		snd.Arg = res.Arg
+		switch res.Arg {
+		case "todo" :
+			snd.Data = append(snd.Data, db_get("todo"))
+			v, _ :=json.Marshal(snd)
+			send_windows(string(v[:]))
+		case "todo_end" :
+			fmt.Println(res)
+			todos, _  := json.Marshal(res.Data)
+			db_set("todo", string(todos[:]))
+		}
+	    return
 	})
-	thrustWindow.Show()
-	thrustWindow.Maximize()
-	thrustWindow.Focus()
-	thrustWindow.OpenDevtools()
 
-
-	thrustWindow.HandleRemote(func(er commands.EventResult, this *window.Window) {
-		    res := Jrep{}
-    		json.Unmarshal([]byte(er.Message.Payload), &res)
-
-
-    		snd := Jrep{}
-    		snd.Arg = res.Arg
-    		switch res.Arg {
-    		case "todo" :
-    			snd.Data = append(snd.Data, db_get("todo"))
-    			v, _ :=json.Marshal(snd)
-    			this.SendRemoteMessage(string(v[:]))
-    		case "todo_end" :
-    			fmt.Println(res)
-    			todos, _  := json.Marshal(res.Data)
-    			db_set("todo", string(todos[:]))
-    		}
-	})
-	run()    
+	ws.Create()
+  	a.Wait()  
 }

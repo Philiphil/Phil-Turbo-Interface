@@ -9,7 +9,7 @@ var db *buntdb.DB
 
 
 func init() {
-  e, _ := buntdb.Open("PTI.db")
+  e, _ := buntdb.Open("PTS.db")
   db = e
 }
 
@@ -33,4 +33,3 @@ type Jrep struct{
   Arg string `json:"arg"`
   Data []string `json:"data"`
 }
-

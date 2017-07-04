@@ -1,0 +1,385 @@
+*3
+$3
+set
+$4
+todo
+$8
+["test"]
+*3
+$3
+set
+$4
+todo
+$12
+["test","f"]
+*3
+$3
+set
+$4
+todo
+$16
+["test","f","e"]
+*3
+$3
+set
+$4
+todo
+$23
+["test","f","e","fefe"]
+*3
+$3
+set
+$4
+todo
+$17
+["","","","","o"]
+*3
+$3
+set
+$4
+todo
+$19
+["Mail fred (vac)"]
+*3
+$3
+set
+$4
+todo
+$33
+["Mail fred (vac)","Mail Pierre"]
+*3
+$3
+set
+$4
+todo
+$48
+["Mail fred (vac)","Mail Pierre","Mail Dosseto"]
+*3
+$3
+set
+$4
+todo
+$33
+["Mail fred (vac)","Mail Pierre"]
+*3
+$3
+set
+$4
+todo
+$50
+["Mail fred (vac)","Mail Pierre","","Mail Pierre"]
+*3
+$3
+set
+$4
+todo
+$33
+["Mail fred (vac)","Mail Pierre"]
+*3
+$3
+set
+$4
+todo
+$54
+["Mail fred (vac)","Mail Pierre","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$81
+["Mail fred (vac)","Mail Pierre","Mail Dosseto (vac)","Attendre Réponse Pierre"]
+*3
+$3
+set
+$4
+todo
+$70
+["Mail fred (vac)","","Mail Dosseto (vac)","Attendre Réponse Pierre"]
+*3
+$3
+set
+$4
+todo
+$118
+["Mail fred (vac)","","Mail Dosseto (vac)","Attendre Réponse Pierre","Mail Dosseto (vac)","Attendre Réponse Pierre"]
+*3
+$3
+set
+$4
+todo
+$100
+["Mail fred (vac)","","Mail Dosseto (vac)","Attendre Réponse Pierre","","Attendre Réponse Pierre"]
+*3
+$3
+set
+$4
+todo
+$70
+["Mail fred (vac)","","Mail Dosseto (vac)","Attendre Réponse Pierre"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$52
+["Mail fred (vac)","","Mail Dosseto (vac)","Pierre"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$47
+["Mail fred (vac)","","Mail Dosseto (vac)","t"]
+*3
+$3
+set
+$4
+todo
+$47
+["Mail fred (vac)","","Mail Dosseto (vac)","t"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$47
+["Mail fred (vac)","","Mail Dosseto (vac)","f"]
+*3
+$3
+set
+$4
+todo
+$51
+["Mail fred (vac)","","Mail Dosseto (vac)","f","e"]
+*3
+$3
+set
+$4
+todo
+$47
+["Mail fred (vac)","","Mail Dosseto (vac)","f"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","","Mail Dosseto (vac)"]
+*3
+$3
+set
+$4
+todo
+$19
+["Mail fred (vac)"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","Attendre Mail Dosseto"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","Attendre Mail Dosseto"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","Attendre Mail Dosseto"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","Attendre Mail Dosseto"]
+*3
+$3
+set
+$4
+todo
+$47
+["Mail fred (vac)","Attendre Mail Dosseto","e"]
+*3
+$3
+set
+$4
+todo
+$47
+["Mail fred (vac)","Attendre Mail Dosseto","e"]
+*3
+$3
+set
+$4
+todo
+$43
+["Mail fred (vac)","Attendre Mail Dosseto"]
+*3
+$3
+set
+$4
+todo
+$66
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre"]
+*3
+$3
+set
+$4
+todo
+$70
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre","?"]
+*3
+$3
+set
+$4
+todo
+$75
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre","?","??"]
+*3
+$3
+set
+$4
+todo
+$70
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre","?"]
+*3
+$3
+set
+$4
+todo
+$66
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre"]
+*3
+$3
+set
+$4
+todo
+$70
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre","?"]
+*3
+$3
+set
+$4
+todo
+$66
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre"]
+*3
+$3
+set
+$4
+todo
+$73
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre","test"]
+*3
+$3
+set
+$4
+todo
+$80
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre","test","test"]
+*3
+$3
+set
+$4
+todo
+$73
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre","test"]
+*3
+$3
+set
+$4
+todo
+$66
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre"]
+*3
+$3
+set
+$4
+todo
+$73
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre","tets"]
+*3
+$3
+set
+$4
+todo
+$66
+["Mail fred (vac)","Attendre Mail Dosseto","Attendre Mail Pierre"]
